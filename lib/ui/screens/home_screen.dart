@@ -80,11 +80,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                         await _product.update(Product(
                                           id: product.id,
                                           title: _titleController.text,
-                                          price: 12,
+                                          price: product.price,
                                           description: _descController.text,
                                           category: product.category,
                                         ));
                                         refetch!();
+                                        print(product.title);
                                         Navigator.of(context).pop();
                                         _titleController.clear();
                                         _descController.clear();
@@ -133,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
       title: "Test",
       price: 12.0,
       description: "Welcome to Najot ta'lim",
-      category: {"name": "Name"},
+      category: {"name": "Anvar"},
     ));
     ScaffoldMessenger.of(context)
         .showSnackBar(const SnackBar(content: Text("Product created")));

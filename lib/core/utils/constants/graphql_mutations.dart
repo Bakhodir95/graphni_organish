@@ -29,24 +29,22 @@ mutation addProduct(
 """;
 
   static const String updateProduct = """
-mutation updateProduct(\$id: ID!, \$title: String, \$price: Float, \$description: String, \$categoryId: ID) {
-  updateProduct(id: \$id, input: { title: \$title, price: \$price, description: \$description, categoryId: \$categoryId }) {
-    id
-    title
-    price
-    description
-    category {
-      name
+  mutation UpdateProduct(\$id: ID!, \$title: String!, \$description: String!, \$price: Float!, \$category: CategoryInput!) {
+    updateProduct(id: \$id, title: \$title, description: \$description, price: \$price, category: \$category) {
+      id
+      title
+      description
+      price
+      category {
+        name
+      }
     }
   }
-}
-""";
+  """;
 
   static const String deleteProduct = """
-mutation deleteProduct(\$id: ID!) {
-  deleteProduct(id: \$id) {
-    id
+  mutation DeleteProduct(\$id: ID!) {
+    deleteProduct(id: \$id)
   }
-}
-""";
+  """;
 }
